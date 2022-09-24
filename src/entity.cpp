@@ -1,7 +1,7 @@
 #include <string>
-#include "entity.h"
+#include "../includes/entity.h"
 
-Entity::Entity(string name)
+Entity::Entity(std::string name)
 {
   Entity::name = name;
 }

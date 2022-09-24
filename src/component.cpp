@@ -1,4 +1,4 @@
-#include "component.h"
+#include "../includes/component.h"
 
 
 void Component::initialise()
