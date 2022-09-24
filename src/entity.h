@@ -1,3 +1,6 @@
+#ifndef ENTITY_H
+#define ENTITY_H
+
 #include <vector>
 #include <string>
 #include "component.h"
@@ -10,4 +13,11 @@ class Entity
     Entity(string name);
     string name;
     vector<Component> components();
+    void Update();
+    void Render();
+    void Initialise();
+    void AddComponent(Component* component);
+    void RemoveComponent(Component* component);
 };
+
+#endif
