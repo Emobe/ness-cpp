@@ -9,5 +9,6 @@ const int SCREEN_HEIGHT = 480;
 int main()
 {
   Game* game = new Game("Ness", SCREEN_WIDTH, SCREEN_HEIGHT);
+  game->Run();
   return 0;
 }

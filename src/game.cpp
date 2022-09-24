@@ -2,12 +2,14 @@
 #define INCLUDE_SDL_IMAGE
 #include "../includes/SDL_include.h"
 #include "../includes/game.h"
+#include "../includes/inputmanager.h"
 #include <string>
 #include <stdexcept>
 
 Game* Game::instance = nullptr;
 
 Game::Game(const std::string& title, int width, int height) {
+  running = true;
   if(instance == nullptr){
     instance = this;
   }else {
@@ -37,8 +39,14 @@ Game::Game(const std::string& title, int width, int height) {
 }
 
 void Game::Run(){
-  SDL_RenderPresent(renderer);
-  SDL_Delay(33);
+  while(running){
+    InputManager::GetInstance().Update();
+    if(InputManager::GetInstance().KeyDown(SDLK_ESCAPE)){
+      running = false;
+    }
+    SDL_RenderPresent(renderer);
+    SDL_Delay(33);
+  }
 }
 
 Game::~Game() {
